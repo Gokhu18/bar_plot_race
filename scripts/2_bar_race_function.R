@@ -4,6 +4,9 @@ library(gganimate)
 
 # data
 load("data/2_processed/causa_muerte.Rdata")
+# logo 
+img <- png::readPNG("resources/logo.png")
+img <- grid::rasterGrob(img, interpolate = T)
 
 causa_muerte %>% 
   group_by(años) %>% 
@@ -18,7 +21,7 @@ causa_muerte %>%
                 height = muertes,
                 width = 0.9), alpha = 0.8, color = NA) +
   geom_text(aes(y = 0, label = paste(causa1, " ")), vjust = 0.2, hjust = 1, size = 5) + # causas label
-  geom_text(aes(y = muertes,label = Value_lbl, hjust=0),size = 8 ) +  #muertes label
+  geom_text(aes(y = muertes,label = Value_lbl, hjust = 0),size = 8 ) +  #muertes label
   coord_flip(clip = "off", expand = TRUE) +
   scale_x_reverse() +
   theme_minimal() +
@@ -33,18 +36,20 @@ causa_muerte %>%
         panel.border = element_blank(),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_line( size=.1, color="grey" ),
-        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        panel.grid.major.x = element_line(size = .1, color = "white" ),
+        panel.grid.minor.x = element_line(size = .1, color = "white" ),
         plot.title = element_text(size = 25, face = "bold", colour = "black", hjust = 1.4, vjust = -5), # title
         plot.subtitle = element_text(size = 45, hjust = .9, face = "italic", color = "red", vjust = -30), # año label
-        plot.caption = element_text(size = 18, face = "bold", color = "gray", hjust = 1, vjust = -1), # caption
-        plot.background = element_blank(),
+        plot.caption = element_text(size = 18, face = "bold", color = "white", hjust = 1.15, vjust = -1), # caption
+        plot.background = element_rect(fill = "gray"), # background
         plot.margin = margin(1,3, 1, 16, "cm")) +
   transition_states(años, transition_length = 4, state_length = 1) +
   ease_aes('sine-in-out') +
   labs(title = 'Número de muertes en Ecuador y sus respectivas causas',
        subtitle = "Año\n{closest_state}", 
-       caption = "Estadística para No Estadísticos") -> anim
+       caption = "Estadística para No Estadísticos") +
+  annotation_custom(img, xmin = -20, xmax = 7, ymin = 15, ymax = Inf) -> anim
 
-  animate(anim, nframes = 1100, fps = 30, width = 1000, height = 600, 
+  animate(anim, nframes = 90, fps = 30, width = 1000, height = 600, # nframes = 1100
         renderer = gifski_renderer("figures/causas_muerte.gif"))
+  
