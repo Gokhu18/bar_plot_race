@@ -7,28 +7,46 @@
 
 <!-- badges: end -->
 
-The goal of bar\_plot\_race is to …
+## Introducción
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+La función `bar_plot_race` tiene por objetivo construir un gráfico de
+barras animado, tomando en cuenta el *tiempo* como factor de cambio.
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+## Estado del proyecto: *En ejecución*
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+**Versión:** Beta 1.0
 
-You can also embed plots, for example:
+**Última actualización:**
 
-![](README_files/figure-gfm/pressure-1.png)<!-- -->
+Fecha:
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+    [1] "2020-01-03"
+
+Hora:
+
+    [1] "07:16 AM"
+
+### Realizado (última sesión)
+
+1.  Color líneas verticales
+2.  Color barras
+3.  Color fondo
+4.  Título (tamaño letra, posición)
+5.  Año (color y tamaño letra, posición)
+6.  caption (posición)
+
+### Por realizar (corto plazo)
+
+1.  Normalizar variables dataframe (tiempo, cantidad, causa)
+2.  Normalizar los argumentos de las funciones (Ej. element\_text())
+3.  Crear funcion
+4.  Tomar en cuenta (parámetros) en el título: posición horizontal,
+    tamaño de letra
+
+### Por realizar (largo plazo)
+
+1.  Construir funcion en formato de paquete
+
+## Recomendaciones
+
+1.  Al cambiar el tamaño de letra en el título se cambia su posición

@@ -7,7 +7,8 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "",
+  echo = F
 )
 ```
 
@@ -16,20 +17,44 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of bar_plot_race is to ...
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Introducción
+La función ``bar_plot_race`` tiene por objetivo construir un gráfico de barras animado, tomando en cuenta el *tiempo* como factor de cambio.
 
-```{r cars}
-summary(cars)
+## Estado del proyecto: *En ejecución*
+
+**Versión:** Beta 1.0
+
+**Última actualización:**
+
+Fecha:
+```{r}
+print(as.Date(format(Sys.time(), "%b %d"), format = "%b %d"))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+Hora:
+```{r}
+print(format(Sys.time(), "%I:%M %p"))
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+
+### Realizado (última sesión)
+
+1. Color líneas verticales
+1. Color barras
+1. Color fondo
+1. Título (tamaño letra, posición)
+1. Año (color y tamaño letra, posición)
+1. caption (posición)
+
+### Por realizar (corto plazo)
+1. Normalizar variables dataframe (tiempo, cantidad, causa)
+1. Normalizar los argumentos de las funciones (Ej. element_text())
+1. Crear funcion
+1. Tomar en cuenta (parámetros) en el título: posición horizontal, tamaño de letra
+
+### Por realizar (largo plazo)
+1. Construir funcion en formato de paquete
+
+## Recomendaciones
+1. Al cambiar el tamaño de letra en el título se cambia su posición
